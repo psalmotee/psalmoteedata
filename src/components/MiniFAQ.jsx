@@ -1,20 +1,21 @@
-import { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import FAQItem from './FAQItem'
-import { MINI_FAQS } from '../data/faqData'
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import FAQItem from "./FAQItem";
+import { MINI_FAQS } from "../data/faqData";
 
-export default function MiniFAQ({ setPage }) {
-  const [openIdx, setOpenIdx] = useState(null)
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+export default function MiniFAQ() {
+  const navigate = useNavigate();
+  const [openIdx, setOpenIdx] = useState(null);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
-  const toggle = (i) => setOpenIdx(prev => (prev === i ? null : i))
+  const toggle = (i) => setOpenIdx((prev) => (prev === i ? null : i));
 
   return (
     <section id="faq" className="py-24 px-5">
       <div className="max-w-[1200px] mx-auto">
-
         {/* Heading */}
         <motion.div
           ref={ref}
@@ -24,10 +25,13 @@ export default function MiniFAQ({ setPage }) {
         >
           <span className="section-tag">Quick Answers</span>
           <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-tight mb-4">
-            Common questions,<br />answered fast
+            Common questions,
+            <br />
+            answered fast
           </h2>
           <p className="text-muted text-base leading-relaxed max-w-[480px]">
-            Got questions? We've got clear answers. Browse our top FAQs below or visit the full FAQ page.
+            Got questions? We've got clear answers. Browse our top FAQs below or
+            visit the full FAQ page.
           </p>
         </motion.div>
 
@@ -57,22 +61,20 @@ export default function MiniFAQ({ setPage }) {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-10"
         >
-          <a
-            href="#faq-page"
-            onClick={e => { e.preventDefault(); setPage('faq') }}
+          <button
+            onClick={() => navigate("/faq")}
             className="
               inline-flex items-center gap-2
               border border-primary/40 text-primary
               px-7 py-3 rounded-xl text-sm font-semibold
               hover:bg-primary/10 transition-all duration-200
-              no-underline
+              no-underline bg-none cursor-pointer
             "
           >
             View all FAQs <ArrowRight size={15} />
-          </a>
+          </button>
         </motion.div>
-
       </div>
     </section>
-  )
+  );
 }
