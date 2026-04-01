@@ -69,7 +69,7 @@ export default function About() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[60vh] flex items-center px-5 py-24 overflow-hidden">
+      <section className="px-5 py-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="glow-orb-primary absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]" />
           <div className="grid-overlay absolute inset-0" />

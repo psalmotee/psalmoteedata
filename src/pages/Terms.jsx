@@ -119,13 +119,13 @@ All disputes shall be governed by the laws of the Federal Republic of Nigeria.`,
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[50vh] flex items-center px-5 py-24 overflow-hidden">
+      <section className="px-5 py-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="glow-orb-primary absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]" />
           <div className="grid-overlay absolute inset-0" />
         </div>
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center w-full">
+        <div className="relative z-10 max-w-3xl mx-auto text-center ">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
