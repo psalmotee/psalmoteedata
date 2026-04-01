@@ -27,11 +27,11 @@ const SERVICES_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { label: "About Us", href: "/about" },
-  { label: "FAQs", href: "/faq", isFaq: true },
-  { label: "Contact", href: "#contact" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
+  { label: "About Us", path: "/about" },
+  { label: "FAQs", path: "/faq" },
+  { label: "Contact", path: "/contact" },
+  { label: "Privacy Policy", path: "/privacy" },
+  { label: "Terms of Service", path: "/terms" },
 ];
 
 const SOCIALS = [
@@ -128,35 +128,22 @@ export default function Footer() {
             <h4 className="font-display font-semibold text-sm mb-5 text-[var(--text)]">
               Company
             </h4>
-            {COMPANY_LINKS.map((l) =>
-              l.isFaq ? (
-                <button
-                  key={l.label}
-                  onClick={() => {
-                    navigate("/faq");
-                    window.scrollTo({ top: 0 });
-                  }}
-                  className="
-                    block text-muted text-sm mb-3 no-underline
-                    hover:text-primary transition-colors duration-200
-                    bg-none border-none cursor-pointer p-0 text-left
-                  "
-                >
-                  {l.label}
-                </button>
-              ) : (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  className="
-                    block text-muted text-sm mb-3 no-underline
-                    hover:text-primary transition-colors duration-200
-                  "
-                >
-                  {l.label}
-                </a>
-              ),
-            )}
+            {COMPANY_LINKS.map((l) => (
+              <button
+                key={l.label}
+                onClick={() => {
+                  navigate(l.path);
+                  window.scrollTo({ top: 0 });
+                }}
+                className="
+                  block text-muted text-sm mb-3 no-underline
+                  hover:text-primary transition-colors duration-200
+                  bg-none border-none cursor-pointer p-0 text-left
+                "
+              >
+                {l.label}
+              </button>
+            ))}
           </div>
 
           {/* Contact */}
@@ -165,20 +152,14 @@ export default function Footer() {
               Contact
             </h4>
             {CONTACTS.map((c, i) => (
-              <div key={i} className="flex items-start gap-2.5 mb-3.5">
-                <c.icon className="text-base mt-px text-muted" />
-                {c.href ? (
-                  <a
-                    href={c.href}
-                    className="text-muted text-sm leading-snug no-underline hover:text-primary"
-                  >
-                    {c.text}
-                  </a>
-                ) : (
-                  <span className="text-muted text-sm leading-snug">
-                    {c.text}
-                  </span>
-                )}
+              <div key={i} className="mb-3.5">
+                <a
+                  href={c.href}
+                  className="text-muted text-sm leading-snug no-underline hover:text-primary flex gap-2.5 transition-colors duration-200"
+                >
+                  <c.icon className="text-base flex-shrink-0" />
+                  <span>{c.text}</span>
+                </a>
               </div>
             ))}
           </div>

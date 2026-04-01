@@ -53,7 +53,7 @@ export default function Header() {
 
   const isActive = (key) => {
     if (key === "home") return location.pathname === "/";
-    if (key === "faq") return location.pathname === "/faq";
+    // if (key === "faq") return location.pathname === "/faq";
     return location.pathname === `/${key}`;
   };
 
