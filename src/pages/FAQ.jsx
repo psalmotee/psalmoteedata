@@ -1,12 +1,17 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { FaQuestionCircle, FaArrowRight } from "react-icons/fa";
+import { FcOnlineSupport } from "react-icons/fc";
 import FAQItem from "../components/FAQItem";
 import FAQSearch from "../components/FAQSearch";
 import FAQCategory from "../components/FAQCategory";
-import Footer from "../components/Footer";
 import { FAQ_DATA } from "../data/faqData";
 
-const ALL_CATEGORY = { id: "all", label: "🔍 All Questions", icon: "" };
+const ALL_CATEGORY = {
+  id: "all",
+  label: "All Questions",
+  icon: FaQuestionCircle,
+};
 
 export default function FAQ() {
   const [search, setSearch] = useState("");
@@ -101,7 +106,19 @@ export default function FAQ() {
             return (
               <FAQCategory
                 key={cat.id}
-                label={`${cat.icon ?? ""} ${cat.label}`}
+                label={
+                  typeof cat.icon === "function" ? (
+                    <span className="flex items-center gap-2">
+                      <cat.icon />
+                      <span>{cat.label}</span>
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      {cat.icon}
+                      <span>{cat.label}</span>
+                    </span>
+                  )
+                }
                 isActive={activeId === cat.id}
                 count={count}
                 onClick={() => handleCategoryClick(cat.id)}
@@ -117,7 +134,7 @@ export default function FAQ() {
               key={cat.id}
               onClick={() => handleCategoryClick(cat.id)}
               className={`
-                px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200
+                px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 flex items-center gap-1.5
                 ${
                   activeId === cat.id
                     ? "bg-primary/15 text-primary border-primary/35"
@@ -125,7 +142,8 @@ export default function FAQ() {
                 }
               `}
             >
-              {cat.icon} {cat.label}
+              {typeof cat.icon === "function" ? <cat.icon /> : cat.icon}{" "}
+              {cat.label}
             </button>
           ))}
         </div>
@@ -135,7 +153,9 @@ export default function FAQ() {
           {/* No results */}
           {filtered.length === 0 && (
             <div className="text-center py-20 text-muted">
-              <div className="text-4xl mb-4">🤔</div>
+              <div className="text-4xl mb-4">
+                <FaQuestionCircle className="inline-block opacity-50" />
+              </div>
               <p className="text-base font-medium mb-1">No results found</p>
               <p className="text-sm">
                 Try a different search term or{" "}
@@ -160,10 +180,11 @@ export default function FAQ() {
               <h2
                 className="
                 text-[0.7rem] text-primary uppercase tracking-[2px]
-                font-semibold mb-4 pb-3 border-b border-[var(--border)]
+                font-semibold mb-4 pb-3 border-b border-[var(--border)] flex items-center gap-2
               "
               >
-                {cat.icon} {cat.label}
+                {typeof cat.icon === "function" ? <cat.icon /> : cat.icon}{" "}
+                {cat.label}
               </h2>
 
               {/* Accordion items */}
@@ -189,7 +210,9 @@ export default function FAQ() {
               p-9 text-center mt-8
             "
             >
-              <div className="text-4xl mb-3">💬</div>
+              <div className="text-4xl mb-3 flex justify-center">
+                <FcOnlineSupport />
+              </div>
               <h3 className="font-display font-semibold text-lg mb-2">
                 Still need help?
               </h3>
@@ -209,14 +232,12 @@ export default function FAQ() {
                   transition-all duration-200
                 "
               >
-                Contact Support →
+                Contact Support <FaArrowRight />
               </a>
             </div>
           )}
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

@@ -1,10 +1,9 @@
-// src/data/faqData.js
-
+import { FaList, FaWallet, FaMobileAlt, FaBolt, FaUser } from "react-icons/fa"
 export const FAQ_DATA = [
   {
     id: 'general',
     label: 'General',
-    icon: '📋',
+    icon: FaList,
     questions: [
       {
         q: 'What is PsalmoteeData?',
@@ -19,7 +18,7 @@ export const FAQ_DATA = [
   {
     id: 'payments',
     label: 'Payments & Wallet',
-    icon: '💳',
+    icon: FaWallet,
     questions: [
       {
         q: 'How do I fund my wallet?',
@@ -38,7 +37,7 @@ export const FAQ_DATA = [
   {
     id: 'airtime',
     label: 'Airtime & Data',
-    icon: '📱',
+    icon: FaMobileAlt,
     questions: [
       {
         q: 'Is airtime delivery instant?',
@@ -57,7 +56,7 @@ export const FAQ_DATA = [
   {
     id: 'electricity',
     label: 'Electricity & Bills',
-    icon: '⚡',
+    icon: FaBolt,
     questions: [
       {
         q: 'How long does electricity token delivery take?',
@@ -72,7 +71,7 @@ export const FAQ_DATA = [
   {
     id: 'guest',
     label: 'Guest Purchase',
-    icon: '👤',
+    icon: FaUser,
     questions: [
       {
         q: 'What is guest purchase?',

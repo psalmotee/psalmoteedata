@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
+import { FaArrowUp } from 'react-icons/fa'
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
@@ -23,7 +24,7 @@ export default function BackToTop() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
         >
-          <ArrowUp size={18} />
+          <FaArrowUp size={18} />
         </motion.button>
       )}
     </AnimatePresence>

@@ -1,6 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/psalmoteedata-logo.png";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaEnvelope,
+  FaPhone,
+  FaMapPin,
+  FaClock,
+  FaHeart,
+} from "react-icons/fa";
 
 const SERVICES_LINKS = [
   {
@@ -35,14 +43,13 @@ const SOCIALS = [
 
 const CONTACTS = [
   {
-    icon: "📧",
+    icon: FaEnvelope,
     href: "mailto:psalmoteetelecoms@gmail.com",
     text: "psalmoteetelecoms@gmail.com",
   },
-  { icon: "📞", href: "tel:+2348058461612", text: "+234 805 846 1612" },
-  { icon: "📍", href: "#", text: "Ibadan, Nigeria" },
-  // { icon: '💬', href: '#', text: 'Live chat available on site' },
-  { icon: "🕐", text: "Available 24/7" },
+  { icon: FaPhone, href: "tel:+2348058461612", text: "+234 805 846 1612" },
+  { icon: FaMapPin, href: "#", text: "Ibadan, Nigeria" },
+  { icon: FaClock, text: "Available 24/7" },
 ];
 
 export default function Footer() {
@@ -159,13 +166,19 @@ export default function Footer() {
             </h4>
             {CONTACTS.map((c, i) => (
               <div key={i} className="flex items-start gap-2.5 mb-3.5">
-                <span className="text-base mt-px">{c.icon}</span>
-                <a
-                  href={c.href}
-                  className="text-muted text-sm leading-snug no-underline hover:text-primary"
-                >
-                  {c.text}
-                </a>
+                <c.icon className="text-base mt-px text-muted" />
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    className="text-muted text-sm leading-snug no-underline hover:text-primary"
+                  >
+                    {c.text}
+                  </a>
+                ) : (
+                  <span className="text-muted text-sm leading-snug">
+                    {c.text}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -181,7 +194,9 @@ export default function Footer() {
           <p className="text-muted text-xs">
             © {new Date().getFullYear()} PsalmoteeData. All rights reserved.
           </p>
-          <p className="text-muted text-xs">Built with ❤️ for Nigerians</p>
+          <p className="text-muted text-xs flex items-center justify-center gap-1">
+            Built with <FaHeart className="text-red-500" /> Psalmotee Tech
+          </p>
         </div>
       </div>
     </footer>

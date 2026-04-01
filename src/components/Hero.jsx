@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Zap, Shield, Clock } from 'lucide-react'
+import { FaMobileAlt, FaWifi, FaBolt, FaTv, FaUser, FaCheckCircle, FaBriefcase } from 'react-icons/fa'
 
 const fadeUp = (delay = 0) => ({
   initial:   { opacity: 0, y: 30 },
@@ -9,18 +10,18 @@ const fadeUp = (delay = 0) => ({
 
 const QUICK_SERVICES = [
   {
-    icon: "📱",
+    icon: FaMobileAlt,
     label: "Airtime",
     href: "https://psalmoteedata.com.ng/vpaccount/airtime",
   },
-  { icon: "📶", label: "Data", href: "https://psalmoteedata.com.ng/vpaccount/data" },
-  { icon: "⚡", label: "Electricity", href: "https://psalmoteedata.com.ng/vpaccount/bill" },
-  { icon: "📺", label: "Cable TV", href: "https://psalmoteedata.com.ng/vpaccount/cable" },
+  { icon: FaWifi, label: "Data", href: "https://psalmoteedata.com.ng/vpaccount/data" },
+  { icon: FaBolt, label: "Electricity", href: "https://psalmoteedata.com.ng/vpaccount/bill" },
+  { icon: FaTv, label: "Cable TV", href: "https://psalmoteedata.com.ng/vpaccount/cable" },
 ];
 
 const LINKS = [
   {
-    icon: "👤",
+    icon: FaUser,
     label: "Guest",
     href: "https://psalmoteedata.com.ng/vpaccount-offline-2",
   },
@@ -87,7 +88,7 @@ export default function Hero() {
                 hover:-translate-y-0.5 transition-all duration-200 no-underline
               "
             >
-              {QUICK_SERVICES[0].icon} Buy Airtime
+              <FaMobileAlt /> Buy Airtime
             </a>
             <a
               href={QUICK_SERVICES[1].href}
@@ -98,7 +99,7 @@ export default function Hero() {
                 hover:bg-accent/20 transition-all duration-200 no-underline
               "
             >
-              {QUICK_SERVICES[1].icon} Buy Data
+              <FaWifi /> Buy Data
             </a>
             <div className="relative group">
               <a
@@ -110,7 +111,7 @@ export default function Hero() {
                   transition-all duration-200 no-underline
                 "
               >
-                {LINKS[0].icon} Continue as Guest
+                <FaUser /> Continue as Guest
               </a>
               {/* Tooltip */}
               <div className="
@@ -152,7 +153,7 @@ export default function Hero() {
               shadow-[0_0_60px_rgba(14,165,198,0.1),0_20px_60px_rgba(0,0,0,0.5)]
               w-full max-w-[320px] animate-float
             ">
-              <div className="text-xs text-muted mb-4">💼 Wallet Balance</div>
+              <div className="text-xs text-muted mb-4 flex items-center gap-1.5"><span><FaBriefcase /></span> Wallet Balance</div>
               <div className="font-display text-[2rem] font-bold mb-5">
                 ₦<span className="text-primary">24,500</span>.00
               </div>
@@ -167,7 +168,7 @@ export default function Hero() {
                       hover:bg-primary/15 hover:border-primary/40 transition-all duration-200
                     "
                   >
-                    <div className="text-[1.4rem] mb-1">{s.icon}</div>
+                    <div className="text-[1.4rem] mb-1"><s.icon /></div>
                     <div className="text-[0.72rem] text-muted">{s.label}</div>
                   </a>
                 ))}
@@ -185,7 +186,7 @@ export default function Hero() {
                 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
               "
             >
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center text-base">✅</div>
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center text-base"><FaCheckCircle className="text-emerald-500" /></div>
               <div>
                 <div className="text-[0.7rem] text-muted">Last transaction</div>
                 <div className="text-[0.82rem] font-semibold">₦500 Airtime sent</div>
@@ -203,7 +204,7 @@ export default function Hero() {
                 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
               "
             >
-              <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center text-base">⚡</div>
+              <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center text-base"><FaBolt className="text-accent" /></div>
               <div>
                 <div className="text-[0.7rem] text-muted">Delivery time</div>
                 <div className="text-[0.82rem] font-semibold">Instant</div>

@@ -1,23 +1,26 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { BriefcaseBusiness } from 'lucide-react'
+import { FaBriefcase, FaShoppingCart, FaCheckCircle,FaRocket } from 'react-icons/fa'
 
 const STEPS = [
   {
     num:   '01',
-    emoji: '💼',
+    icon: FaBriefcase,
+    color: 'text-primary',
     title: 'Fund Your Wallet',
     desc:  'Create an account and fund your wallet using your preferred payment method. Funds reflect instantly.',
   },
   {
     num:   '02',
-    emoji: '🛒',
+    icon: FaShoppingCart,
+    color: 'text-accent',
     title: 'Select a Service',
     desc:  'Choose from airtime, data bundles, electricity tokens, or cable TV subscriptions.',
   },
   {
     num:   '03',
-    emoji: '✅',
+    icon: FaCheckCircle,
+    color: 'text-green-500',
     title: 'Confirm & Pay',
     desc:  'Review your order and confirm payment. Your service is delivered instantly to your device.',
   },
@@ -78,7 +81,7 @@ export default function HowItWorks() {
                 {s.num}
               </div>
 
-              <div className="text-3xl mb-3">{s.emoji}</div>
+              <div className="text-3xl mb-3 justify-center flex"><s.icon className={`${s.color}`} /></div>
               <h3 className="font-display font-semibold text-base mb-2.5">
                 {s.title}
               </h3>
@@ -105,7 +108,7 @@ export default function HowItWorks() {
               transition-all duration-200
             "
           >
-            🚀 Get Started Now
+            <FaRocket /> Get Started Now
           </a>
         </motion.div>
       </div>

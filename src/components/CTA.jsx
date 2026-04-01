@@ -1,9 +1,10 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FaCheckCircle, FaRocket } from "react-icons/fa";
 
 export default function CTA() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <section className="relative py-28 px-5 overflow-hidden border-y border-[var(--border)]">
@@ -57,7 +58,7 @@ export default function CTA() {
                 transition-all duration-200
               "
             >
-              🚀 Create Free Account
+              <FaRocket /> Create Free Account
             </a>
             <a
               href="https://psalmoteedata.com.ng/vpaccount-offline-2"
@@ -73,9 +74,18 @@ export default function CTA() {
           </div>
 
           {/* Trust line */}
-          <p className="text-[0.75rem] text-muted/70 mt-6">
-            ✅ No credit card required &nbsp;·&nbsp; ✅ Free to register
-            &nbsp;·&nbsp; ✅ Instant activation
+          <p className="text-[0.75rem] text-muted/70 mt-6 flex items-center justify-center gap-3 flex-wrap">
+            <span className="inline-flex items-center gap-1">
+              <FaCheckCircle className="text-primary" /> No credit card required
+            </span>
+            <span className="text-muted/50">·</span>
+            <span className="inline-flex items-center gap-1">
+              <FaCheckCircle className="text-primary" /> Free to register
+            </span>
+            <span className="text-muted/50">·</span>
+            <span className="inline-flex items-center gap-1">
+              <FaCheckCircle className="text-primary" /> Instant activation
+            </span>
           </p>
         </motion.div>
       </div>

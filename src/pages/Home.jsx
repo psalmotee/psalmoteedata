@@ -5,12 +5,7 @@ import HowItWorks from "../components/HowItWorks";
 import Testimonials from "../components/Testimonials";
 import MiniFAQ from "../components/MiniFAQ";
 import CTA from "../components/CTA";
-import Footer from "../components/Footer";
 
-/**
- * Home page
- * Composes all homepage sections in order.
- */
 export default function Home() {
   return (
     <>
@@ -21,7 +16,6 @@ export default function Home() {
       <Testimonials />
       <MiniFAQ />
       <CTA />
-      <Footer />
     </>
   );
 }

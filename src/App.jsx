@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "./components/Header";
 import ScrollProgress from "./components/ScrollProgress";
 import BackToTop from "./components/BackToTop";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import FAQ from "./pages/FAQ";
@@ -51,6 +52,7 @@ export default function App() {
       <AnimatedRoutes />
 
       <BackToTop />
+      <Footer />
     </HashRouter>
   );
 }

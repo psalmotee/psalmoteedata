@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FAQItem({ q, a, isOpen, onToggle }) {
   return (
@@ -33,7 +33,7 @@ export default function FAQItem({ q, a, isOpen, onToggle }) {
             ${isOpen ? 'bg-primary/15 text-primary' : 'bg-[var(--border)] text-muted'}
           `}
         >
-          <ChevronDown size={14} />
+          <IoIosArrowDown size={14} />
         </motion.span>
       </button>
 
